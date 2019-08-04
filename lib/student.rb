@@ -20,8 +20,9 @@ class Student
       WHERE name = ?
     SQL
     
-    DB[:conn].execute(sql, student_name).each do |student|
-      
+    DB[:conn].execute(sql, student_name).each do |row|
+      self.new_from_db(row)
+    end
   end
   
   def save
