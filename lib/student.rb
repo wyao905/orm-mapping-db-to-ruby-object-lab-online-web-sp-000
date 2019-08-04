@@ -20,7 +20,8 @@ class Student
       WHERE name = ?
     SQL
     
-    DB[:conn].execute(sql, student_name)
+    DB[:conn].execute(sql, student_name).each do |student|
+      
   end
   
   def save
