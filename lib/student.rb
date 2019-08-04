@@ -14,13 +14,13 @@ class Student
     # remember each row should be a new instance of the Student class
   end
 
-  def self.find_by_name(name)
+  def self.find_by_name(student_name)
     sql = <<-SQL
       SELECT * FROM students
       WHERE name = ?
     SQL
     
-    DB[:conn].execute(sql, name)
+    DB[:conn].execute(sql, student_name)
   end
   
   def save
